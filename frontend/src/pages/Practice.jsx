@@ -45,7 +45,7 @@ const Practice = () => {
 
   const fetchQuestions = async () => {
     try {
-      const response = await api.get('/practice/questions')
+      const response = await api.get('/api/practice/questions')
       setQuestions(response.questions || response.data?.questions || [])
     } catch (error) {
       console.error('Error fetching questions:', error)
@@ -54,7 +54,7 @@ const Practice = () => {
 
   const fetchAptitudeQuestions = async () => {
     try {
-      const response = await api.get('/aptitude/questions')
+      const response = await api.get('/api/aptitude/questions')
       setAptitudeQuestions(response.questions || [])
     } catch (error) {
       console.error('Error fetching aptitude questions:', error)
@@ -63,7 +63,7 @@ const Practice = () => {
 
   const fetchSituationalQuestions = async () => {
     try {
-      const response = await api.get('/aptitude/situational')
+      const response = await api.get('/api/aptitude/situational')
       setSituationalQuestions(response.questions || [])
     } catch (error) {
       console.error('Error fetching situational questions:', error)
@@ -72,7 +72,7 @@ const Practice = () => {
 
   const fetchCaseStudies = async () => {
     try {
-      const response = await api.get('/aptitude/case-studies')
+      const response = await api.get('/api/aptitude/case-studies')
       setCaseStudies(response.case_studies || [])
     } catch (error) {
       console.error('Error fetching case studies:', error)
@@ -82,7 +82,7 @@ const Practice = () => {
   const selectQuestion = async (questionId) => {
     try {
       setIsLoading(true)
-      const response = await api.get(`/practice/questions/${questionId}`)
+      const response = await api.get(`/api/practice/questions/${questionId}`)
       setSelectedQuestion(response)
       setCode(response.starter_code)
       setHints([])
@@ -101,7 +101,7 @@ const Practice = () => {
     if (hintsRevealed >= selectedQuestion.hints_count) return
     
     try {
-      const response = await api.get(`/practice/questions/${selectedQuestion.id}/hint/${hintsRevealed}`)
+      const response = await api.get(`/api/practice/questions/${selectedQuestion.id}/hint/${hintsRevealed}`)
       setHints(prev => [...prev, response.hint])
       setHintsRevealed(prev => prev + 1)
     } catch (error) {
@@ -111,7 +111,7 @@ const Practice = () => {
 
   const viewSolution = async () => {
     try {
-      const response = await api.get(`/practice/questions/${selectedQuestion.id}/solution`)
+      const response = await api.get(`/api/practice/questions/${selectedQuestion.id}/solution`)
       setSolution(response)
       setShowSolution(true)
     } catch (error) {
@@ -124,7 +124,7 @@ const Practice = () => {
     setSubmitResult(null)
     
     try {
-      const response = await api.post('/practice/submit', {
+      const response = await api.post('/api/practice/submit', {
         question_id: selectedQuestion.id,
         code: code
       })
@@ -176,7 +176,7 @@ const Practice = () => {
     if (!aptitudeAnswer || !selectedAptitude) return
     try {
       setIsLoading(true)
-      const response = await api.post('/aptitude/check-answer', {
+      const response = await api.post('/api/aptitude/check-answer', {
         question_id: selectedAptitude.id,
         answer: aptitudeAnswer
       })
@@ -198,7 +198,7 @@ const Practice = () => {
     if (!situationalAnswer || !selectedSituational) return
     try {
       setIsLoading(true)
-      const response = await api.post('/aptitude/situational/check-answer', {
+      const response = await api.post('/api/aptitude/situational/check-answer', {
         question_id: selectedSituational.id,
         answer: situationalAnswer
       })
