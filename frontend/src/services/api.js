@@ -2,16 +2,18 @@ import axios from 'axios'
 
 // Base URL for all API requests - use relative path for proxy
 const API_BASE_URL =
-  import.meta.env.VITE_API_URL || 'http://localhost:8000'
+  import.meta.env.MODE === 'production'
+    ? 'https://skill-scanai-backend.onrender.com'
+    : 'http://localhost:8000'
 
-// Create axios instance with default config
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 30000,
 })
+
+
 
 // Response interceptor for error handling
 apiClient.interceptors.response.use(
