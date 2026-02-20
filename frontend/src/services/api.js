@@ -33,7 +33,7 @@ apiClient.interceptors.response.use(
  * @returns {Promise} - Parsed resume data
  */
 export const uploadResume = async (formData) => {
-  return apiClient.post('/resume/upload-resume', formData, {
+  return apiClient.post('/api/resume/upload-resume', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -46,7 +46,7 @@ export const uploadResume = async (formData) => {
  * @returns {Promise} - Interview session data with first question
  */
 export const startInterview = async (data) => {
-  return apiClient.post('/interview/start-interview', data)
+  return apiClient.post('/api/interview/start-interview', data)
 }
 
 /**
@@ -55,7 +55,7 @@ export const startInterview = async (data) => {
  * @returns {Promise} - Next question or completion status
  */
 export const submitAnswer = async (data) => {
-  return apiClient.post('/interview/submit-answer', data)
+  return apiClient.post('/api/interview/submit-answer', data)
 }
 
 /**
@@ -64,7 +64,7 @@ export const submitAnswer = async (data) => {
  * @returns {Promise} - Next HR question or completion status
  */
 export const submitHRAnswer = async (data) => {
-  return apiClient.post('/hr/hr-round', data)
+  return apiClient.post('/api/hr/hr-round', data)
 }
 
 /**
@@ -73,7 +73,7 @@ export const submitHRAnswer = async (data) => {
  * @returns {Promise} - Complete interview report with scores and feedback
  */
 export const getReport = async (data) => {
-  return apiClient.post('/report/generate-report', data)
+  return apiClient.post('/api/report/generate-report', data)
 }
 
 /**
@@ -83,7 +83,7 @@ export const getReport = async (data) => {
  * @returns {Promise} - Improved bullet point with suggestions
  */
 export const improveBullet = async (bullet, role = 'SDE') => {
-  return apiClient.post('/resume/improve-bullet', { bullet, role })
+  return apiClient.post('/api/resume/improve-bullet', { bullet, role })
 }
 
 /**
@@ -93,7 +93,7 @@ export const improveBullet = async (bullet, role = 'SDE') => {
  * @returns {Promise} - Array of improved bullet points
  */
 export const improveBulletsBatch = async (bullets, role = 'SDE') => {
-  return apiClient.post('/resume/improve-bullets-batch', { bullets, role })
+  return apiClient.post('/api/resume/improve-bullets-batch', { bullets, role })
 }
 
 // Export the axios instance for custom requests
