@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pdfplumber
+pydantic
+scikit-learn
+python-dotenv
+pdf2image
+pytesseract

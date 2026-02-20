@@ -1,0 +1,144 @@
+/* Print Styles - 1 Page PDF, Light Grey Background */
+@media print {
+  @page {
+    margin: 0.3cm;
+    size: A4 portrait;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  html, body {
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: #f1f5f9 !important;
+    color: #1e293b !important;
+    font-size: 7pt !important;
+    line-height: 1.2 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide non-essential */
+  nav, button, .no-print, a[href="/interview"],
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .hidden.print\:block {
+    display: block !important;
+  }
+
+  /* Light grey background for all */
+  div, section, article, main, aside, header, footer,
+  [class*="bg-slate"], [class*="bg-white/"], [class*="bg-gradient"],
+  [class*="backdrop"], [class*="rounded"] {
+    background: #f1f5f9 !important;
+    background-color: #f1f5f9 !important;
+  }
+
+  /* Cards with slightly darker grey border */
+  [class*="rounded-2xl"], [class*="rounded-xl"] {
+    background: #e2e8f0 !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px !important;
+    padding: 6px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Containers */
+  .container, .max-w-6xl, .max-w-4xl {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 4px !important;
+    margin: 0 !important;
+  }
+
+  /* Text colors - dark for readability */
+  [class*="text-white"] { color: #1e293b !important; }
+  [class*="text-slate"] { color: #475569 !important; }
+  
+  /* Score colors - keep vivid */
+  [class*="text-green"] { color: #16a34a !important; }
+  [class*="text-yellow"] { color: #ca8a04 !important; }
+  [class*="text-red"] { color: #dc2626 !important; }
+  [class*="text-blue"] { color: #2563eb !important; }
+  [class*="text-purple"] { color: #7c3aed !important; }
+
+  /* Score bars with colors */
+  [class*="bg-green"] { background-color: #16a34a !important; }
+  [class*="bg-yellow"] { background-color: #eab308 !important; }
+  [class*="bg-red"] { background-color: #dc2626 !important; }
+  [class*="bg-blue"]:not([class*="slate"]) { background-color: #3b82f6 !important; }
+  [class*="bg-purple"] { background-color: #8b5cf6 !important; }
+
+  /* Grids - maintain layout */
+  .grid { display: grid !important; }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+  .lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Compact text sizes for 1 page */
+  .text-6xl { font-size: 20pt !important; }
+  .text-4xl { font-size: 14pt !important; }
+  .text-3xl { font-size: 11pt !important; }
+  .text-2xl { font-size: 9pt !important; }
+  .text-xl { font-size: 8pt !important; }
+  .text-lg { font-size: 7pt !important; }
+  .text-sm { font-size: 6pt !important; }
+  .text-xs { font-size: 5pt !important; }
+
+  /* Minimal spacing for 1 page */
+  .mb-10, .mb-8 { margin-bottom: 4px !important; }
+  .mb-6, .mb-4 { margin-bottom: 3px !important; }
+  .mb-3, .mb-2 { margin-bottom: 2px !important; }
+  .mt-8, .mt-6 { margin-top: 3px !important; }
+  .p-8 { padding: 6px !important; }
+  .p-6 { padding: 5px !important; }
+  .p-4 { padding: 3px !important; }
+  .px-8, .px-6, .px-4 { padding-left: 4px !important; padding-right: 4px !important; }
+  .py-8, .py-4 { padding-top: 3px !important; padding-bottom: 3px !important; }
+  .gap-8, .gap-6 { gap: 5px !important; }
+  .gap-4, .gap-3 { gap: 3px !important; }
+  .space-y-3 > * + * { margin-top: 2px !important; }
+
+  /* Small chart */
+  .recharts-wrapper, .h-80 {
+    max-height: 130px !important;
+    height: 130px !important;
+  }
+
+  /* Hide circular progress SVG - too big */
+  .w-48.h-48, svg[viewBox="0 0 200 200"] {
+    display: none !important;
+  }
+
+  /* Improvement items compact */
+  .space-y-3 > div {
+    padding: 4px !important;
+    margin-bottom: 2px !important;
+  }
+
+  /* Icons smaller */
+  .w-12.h-12 { width: 24px !important; height: 24px !important; }
+  .w-10.h-10 { width: 20px !important; height: 20px !important; }
+  .w-8.h-8 { width: 16px !important; height: 16px !important; }
+  .w-6.h-6 { width: 12px !important; height: 12px !important; }
+  .w-5.h-5 { width: 10px !important; height: 10px !important; }
+
+  /* Progress bars thinner */
+  .h-2 { height: 4px !important; }
+
+  /* Print header styling */
+  .print-header {
+    background: #e2e8f0 !important;
+    padding: 8px !important;
+    margin-bottom: 6px !important;
+    border-radius: 6px !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+}
