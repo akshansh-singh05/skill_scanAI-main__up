@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 // Base URL for all API requests - use relative path for proxy
-const API_BASE_URL = '/api'
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 // Create axios instance with default config
 const apiClient = axios.create({
