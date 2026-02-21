@@ -24,7 +24,10 @@ const CareerRecommender = ({ resumeText, skills = [], onCareerSelect }) => {
     setError(null);
     
     try {
-      const response = await fetch('/api/resume/career-recommendation', {
+      const response = await fetch(`${import.meta.env.MODE === 'production'
+        ? 'https://skill-scanai-backend.onrender.com'
+        : 'http://localhost:8000'
+        }/api/resume/career-recommendation`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
